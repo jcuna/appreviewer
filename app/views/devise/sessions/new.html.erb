@@ -5,11 +5,11 @@
 		<fieldset>
 			<legend><h2>Sign in</h2></legend>
 
-		<%= f.input :email %><br>
-		<%= f.input :password %><br>
+		<%= f.input :email, :input_html => {:size => 30} %><br>
+		<%= f.input :password, :input_html => {:size => 30} %><br>
 
 		<% if devise_mapping.rememberable? -%>
-		<div><%= f.input :remember_me, as: :boolean%></div><br>
+		<div><%= f.input_field :remember_me, as: :boolean, inline_label: "Remember me" %></div><br>
 		<% end -%>
 
 		<div><%= f.button :submit, "Sign in" %></div>

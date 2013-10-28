@@ -1,5 +1,5 @@
 <div class="jumbotron">
-<h1 >All Reviews.</h1>
+<h1 align="center">All Reviews.</h1>
 </div>
 <% if user_signed_in? %>
 <%= link_to "Post a New Review", new_status_path, class: "btn btn-primary btn-lg btn-block" %>
@@ -21,5 +21,5 @@
 
 <% end %>
 	<% else %>
-	<%= link_to "Please sign in to post or read reviews.", new_user_session_path %>
+	<h4><%= link_to "Please sign in to post or read reviews.", new_user_session_path %></h4>
 <% end %>
