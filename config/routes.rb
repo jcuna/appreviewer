@@ -1,4 +1,4 @@
-Treebook::Application.routes.draw do
+Appreviewer::Application.routes.draw do
   devise_for :users
 
   resources :statuses
