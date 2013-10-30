@@ -10,7 +10,7 @@
 
 </head>
 <body>
-	
+	<div class="bodyContainer">
 <nav class="navbar-wrapper navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -52,8 +52,21 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <% if flash[:alert] %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+  
+  <% if flash[:notice] %>
+    <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
 
 
 
@@ -61,8 +74,6 @@
 
 </div>
 
-
+</div>
 </body>
-
-
 </html>
