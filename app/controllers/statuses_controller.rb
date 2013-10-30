@@ -60,7 +60,7 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.update_attributes(params[:status])
-        format.html { redirect_to @status, notice: 'Status was successfully updated.' }
+        format.html { redirect_to @status, notice: 'Revew was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

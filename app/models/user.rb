@@ -14,9 +14,14 @@ validates :last_name, presence: true
 validates :profile_name, presence: true,
                          uniqueness: true,
                          format: {
-                          with: /a-zA-Z0-0_-/,
-                          message: "Must be formatted correctly."
+                          with: /^[a-zA-Z0-9_-]+$/,
+                          message: "May not contain spaces or special characters."
                          }
+validates :email, format: {
+                          with: /mercy.edu/ || /mercymavericks.edu/,
+                          message: "Must be a mercy.edu or mercymavericks account."
+                         }
+
 
 has_many :statuses
 

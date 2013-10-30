@@ -1,27 +1,29 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: "well"}) do |f| %>
-  <%= devise_error_messages! %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: "well form-signin"}) do |f| %>
+<!-- <div class="alert alert-danger"><%= devise_error_messages! %></div><br> -->
   <fieldset>
       <legend><h2>Sign Up</h2></legend>
-  <div><%= f.input :first_name, :input_html => {:size => 30}%><br />
+  <div><%= f.input :first_name, label: false, placeholder: "First Name", input_html: { class: "form-control" } %><br>
   </div>
   	 
-  <div><%= f.input :last_name, :input_html => {:size => 30}%><br />
+  <div><%= f.input :last_name, label: false, placeholder: "Last Name", input_html: { class: "form-control" } %><br>
  </div>
 
-  <div><%= f.input :profile_name, :input_html => {:size => 30}%><br />
+  <div><%= f.input :profile_name, label: false, placeholder: "Profile Name", input_html: { class: "form-control" } %><br>
   </div>
 
-  <div><%= f.input :email, :input_html => {:size => 30} %> <br /> </div>
+  <div><%= f.input :email, label: false, placeholder: "Email", input_html: { class: "form-control" } %><br> 
+  </div>
 
-  <div><%= f.input :password, :input_html => {:size => 30} %> <br />
+  <div><%= f.input :password, label: false, placeholder: "Password", input_html: { class: "form-control" } %><br>
    </div>
 
-  <div><%= f.input :password_confirmation, :input_html => {:size => 30} %><br /></div>
+  <div><%= f.input :password_confirmation, label: false, placeholder: "Confirm Password", input_html: { class: "form-control" } %><br></div>
 
-  <div><%= f.button :submit, "Sign up" %></div>
+
+  <div><%= f.submit "Sign Up", :class => "btn btn-lg btn-primary btn-block" %></div>
 <% end %>
 </fieldset>
 <%= render "devise/shared/links" %>

@@ -24,3 +24,17 @@
 .status.hover .admin {
 	display: inline;
 }
+
+.help-inline {
+	display: block;
+	color: #b94a48;
+	background-color: #f2dede;
+	padding: 2px;
+	margin-top: 2px;
+	 border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+}
