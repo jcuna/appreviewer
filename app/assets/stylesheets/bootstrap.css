@@ -4155,7 +4155,13 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
 }
 
-.navbar-fixed-top,
+.navbar-fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  border-width: 0 0 1px;
+}
+
 .navbar-fixed-bottom {
   position: fixed;
   right: 0;
@@ -4920,8 +4926,8 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
@@ -5073,8 +5079,6 @@ a.thumbnail:focus {
   color: #b94a48;
   background-color: #f2dede;
   border-color: #eed3d7;
-  display:table-cell;
-  empty-cells:hide;
 }
 
 .alert-danger hr {

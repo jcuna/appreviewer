@@ -11,6 +11,8 @@
  *= require_self
  *= require_tree .
  */
-.bodyContainer {
-	padding-top:60px;
+
+.bodyContainer { 
+	padding-top: 70px; 
 }
+

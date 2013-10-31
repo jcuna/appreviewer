@@ -1,32 +1,36 @@
 <div class="row">
   <div class="jumbotron"><h2 align="center">Edit <%= current_user.full_name  %></h2></div>
-    <div class="col-md-4">
 
-
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
 
 <div class="well">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <div><%= f.input :email, :input_html => {:size => 30} %><br /></div>
+
+  <!-- <%= devise_error_messages! %> -->
+<div><%= f.input :first_name, label: false, input_html: { class: "form-control" } %><br /></div>
+<div><%= f.input :last_name, label: false, input_html: { class: "form-control" } %><br /></div>
+  <div><%= f.input :email, label: false, input_html: { class: "form-control" } %><br /></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.input :password, :autocomplete => "off", :input_html => {:size => 30} %> <i>(leave blank if you don't want to change it)</i><br /></div>
+  <div><%= f.input :password, :autocomplete => "off", label: false, placeholder: "Password", input_html: { class: "form-control" } %><i>(leave blank if you don't want to change it)</i><br /><br></div>
 
-  <div><%= f.input :password_confirmation, :input_html => {:size => 30} %><br /></div>
+  <div><%= f.input :password_confirmation, label: false, placeholder: "Password Confirmation", input_html: { class: "form-control" } %><br /></div>
 
-  <div><%= f.input :current_password, :input_html => {:size => 30} %> <i>(we need your current password to confirm your changes)</i><br /></div><br>
+  <div><%= f.input :current_password, label: false, placeholder: "Current Password", input_html: { class: "form-control" } %> <i>(we need your current password to confirm your changes)</i><br /></div><br>
 
-  <div><%= f.button :submit, "Update" %></div>
+  <div><%= f.submit "Update", :class => "btn btn-lg btn-primary btn-block" %></div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure you want to cancel your account?" }, :method => :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure you want to cancel your account?" }, :method => :delete, :class => "btn btn-primary btn-sm btn-danger" %></p>
 </div>
 
 <%= link_to "Back", :back %>
+</div>
 </div>
 </div>

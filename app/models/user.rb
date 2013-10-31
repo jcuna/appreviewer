@@ -18,7 +18,7 @@ validates :profile_name, presence: true,
                           message: "May not contain spaces or special characters."
                          }
 validates :email, format: {
-                          with: /@mercy.edu/,
+                          with: /@mercy.edu/ || /mercymavericks.edu/,
                           message: "Must be a mercy.edu or mercymavericks account."
                          }
 
