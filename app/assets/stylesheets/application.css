@@ -13,6 +13,9 @@
  */
 
 .bodyContainer { 
-	padding-top: 70px; 
+	padding-top: 60px; 
 }
 
+.alert {
+	margin-top: -20px;
+}
