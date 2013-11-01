@@ -1,3 +1,4 @@
+<div class="container">
 <div class="jumbotron">
 <h1 align="center">All Reviews.</h1>
 </div>
@@ -7,20 +8,27 @@
 <% @statuses.each do |status| %>
 
 <div class="status">
-	<strong><p><%= status.user.full_name %></p></strong>
-	<p><%= status.content %></p>
-	<div class="meta">
-		<%= link_to time_ago_in_words(status.created_at) + " ago", status %>
-		<span class="admin">
-			<% if status.user_id == current_user.id %>
-			| <%= link_to "Edit", edit_status_path(status) %> |
-			<%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
-<% end %>
-		</span>
+	<div class="row">
+		<div class="col-md-1">
+			<%= image_tag status.user.gravatar_url %>
+		</div>
+		<div class="col-sm-12 col-md-6">
+		<strong><p><%= status.user.full_name %></p></strong>
+		<p><%= status.content %></p>
+			<div class="meta">
+				<%= link_to time_ago_in_words(status.created_at) + " ago", status %>
+				<span class="admin">
+					<% if status.user_id == current_user.id %>
+					| <%= link_to "Edit", edit_status_path(status) %> |
+					<%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
+					<% end %>
+				</span>
+			</div>
+		</div>
 	</div>
-	</div>
-
+</div>
 <% end %>
 	<% else %>
 	<h4><%= link_to "Please sign in to post or read reviews.", new_user_session_path %></h4>
 <% end %>
+</div>
