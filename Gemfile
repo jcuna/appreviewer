@@ -13,9 +13,6 @@ group :development, :test do
 	gem 'sqlite3'
 end
 
-group :prodcution do
-		gem "pg"
-end
 
 # Gems used only for assets and not required
 # in production environments by default.
