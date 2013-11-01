@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
                             with: /^[a-zA-Z0-9_-]+$/,
                             message: "May not contain spaces or special characters."
                            }
-  validates :email, format: {
-                            with: /@mercy.edu/,
-                            message: "Must be a mercy.edu or mercymavericks account."
-                           }
+  # validates :email, format: {
+  #                          with: /@mercy.edu/,
+  #                         message: "Must be a mercy.edu or mercymavericks account."
+  #                        }
 
 
   has_many :statuses
