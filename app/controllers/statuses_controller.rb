@@ -18,7 +18,6 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # GET /statuses/1.json
   def show
     @status = Status.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @status }
@@ -82,7 +81,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
     @status.destroy
 
     respond_to do |format|
-      format.html { redirect_to statuses_url }
+      format.html { redirect_to statuses_url } 
       format.json { head :no_content }
     end
   end

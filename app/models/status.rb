@@ -1,7 +1,7 @@
 class Status < ActiveRecord::Base
   attr_accessible :content, :user_id, :appName
   belongs_to :user
-  belongs_to :appname
+
 
 
 validates :content, presence: true,

@@ -1,5 +1,5 @@
 class AppName < ActiveRecord::Base
-  attr_accessible :content, :user_id
+  attr_accessible :appName
   has_many :statuses
 
 
