@@ -21,4 +21,13 @@ end
 		assert !status.save
 		assert !status.errors[:user_id].empty?
 end
+
+	test "that a review has an app name" do
+		status = Status.new
+		status.content = "Hello"
+		status.appName = "App Name"
+		assert !status.save
+		assert !status.errors[:appName].empty?
+end
+
 end
