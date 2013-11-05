@@ -1,7 +1,7 @@
-#class AppName < ActiveRecord::Base
-#  attr_accessible :content
-#
-#  has_many :statuses
-#
-#end
+class AppName < ActiveRecord::Base
+  attr_accessible :appName, :content, :status
+
+  has_many :statuses
+
+end
   
