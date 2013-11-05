@@ -1,5 +1,7 @@
 Appreviewer::Application.routes.draw do
+
   get "app_profile/show"
+
 
   get "profiles/show"
 
@@ -15,8 +17,9 @@ Appreviewer::Application.routes.draw do
   get 'newreview', to: 'statuses#new', as: :newreview
   root to: 'statuses#index'
 
-  #get '/:id', to: 'profiles#show'
-  get '/:id', to: 'app_profile#show'
+  get '/:id', to: 'profiles#show'
+
+  get 'apps/:id', to: 'app_profile#show'
 
 
   # The priority is based upon order of creation:

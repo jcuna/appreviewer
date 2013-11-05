@@ -3,7 +3,6 @@ class Status < ActiveRecord::Base
   belongs_to :user
 
 
-
 validates :content, presence: true,
                     length: { minimum: 2 }
 
@@ -11,5 +10,9 @@ validates :content, presence: true,
 validates :appName, presence: true,
                     length: { minimum: 2 }
 
-  
+
+def after_save
+appName = appName.downcase
+end
+
 end

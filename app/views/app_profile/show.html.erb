@@ -12,12 +12,4 @@
 	</div>
 
 	
-		<% @statuses.each do |status| %>
-			<div class ="well">
-				
-				<%= status.content %>
-				<hr />
-				<%= link_to time_ago_in_words(status.created_at), status_path(status) %> ago
-				</div>
-					
-					<% end %>
+	
