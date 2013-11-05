@@ -3,7 +3,7 @@ class AppProfileController < ApplicationController
   	@appName = Status.find_by_appName(params[:id])
 
 	  	if @appName
-	  			@statuses = Status.all
+	  			@contents = @appName.statuses.all
 	  	render action: :show
 	  	else
 	  		render file: 'public/404', status: 404, formats: [:html]

@@ -19,7 +19,7 @@ Appreviewer::Application.routes.draw do
 
   get '/:id', to: 'profiles#show'
 
-  get 'apps/:id', to: 'app_profile#show'
+  get '/apps/:id', to: 'app_profile#show', as: 'appName'
 
 
   # The priority is based upon order of creation:
