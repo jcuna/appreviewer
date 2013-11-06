@@ -1,17 +1,15 @@
 class Status < ActiveRecord::Base
-  attr_accessible :content, :user_id, :appName
+  attr_accessible :content, :user_id, :application
+  	
+  	belongs_to :user
+  	belongs_to :app_profile
 
-  belongs_to :user
-  belongs_to :appName, class_name: 'appName'
 
-
-validates :content, presence: true,
+	validates :content, presence: true,
                     length: { minimum: 2 }
 
-
-validates :appName, presence: true,
+    validates :application, presence: true,
                     length: { minimum: 2 }
-
 
 
 end

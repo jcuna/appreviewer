@@ -11,22 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106024851) do
+ActiveRecord::Schema.define(:version => 20131106210823) do
 
-  create_table "app_names", :force => true do |t|
-    t.string   "appName"
+  create_table "app_profiles", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "statuses", :force => true do |t|
-    t.string   "appName"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.integer  "app_id"
+    t.string   "application"
   end
 
+  add_index "statuses", ["app_id"], :name => "index_statuses_on_app_id"
   add_index "statuses", ["user_id"], :name => "index_statuses_on_user_id"
 
   create_table "user_friendships", :force => true do |t|

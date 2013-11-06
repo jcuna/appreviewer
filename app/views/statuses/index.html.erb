@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-sm-12 col-md-6">
 		<strong><p><%= link_to status.user.full_name, status.user.profile_name %> 
-			posted a review for <%= link_to status.appName, appName_path(status.appName) %></p></strong>
+			posted a review for <%= status.application %></p></strong>
 		<p><%= status.content %></p>
 			<div class="meta">
 				<%= link_to time_ago_in_words(status.created_at) + " ago", status %>
