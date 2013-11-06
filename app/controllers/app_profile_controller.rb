@@ -3,7 +3,7 @@ class AppProfileController < ApplicationController
   	@appName = Status.find_by_appName(params[:id])
 
 	  	if @appName
-	  			@statuses = @appName
+	  			@statuses = @appName.content
 
 	  	render action: :show
 	  	else

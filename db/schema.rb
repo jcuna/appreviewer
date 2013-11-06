@@ -11,24 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131105212028) do
+ActiveRecord::Schema.define(:version => 20131106024851) do
 
   create_table "app_names", :force => true do |t|
+    t.string   "appName"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "appName"
   end
 
   create_table "statuses", :force => true do |t|
+    t.string   "appName"
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.string   "appName"
   end
 
-  add_index "statuses", ["appName"], :name => "index_statuses_on_appName"
   add_index "statuses", ["user_id"], :name => "index_statuses_on_user_id"
+
+  create_table "user_friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_friendships", ["user_id", "friend_id"], :name => "index_user_friendships_on_user_id_and_friend_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
