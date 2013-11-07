@@ -7,7 +7,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   
   def index
     @statuses = Status.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @statuses }
@@ -29,7 +29,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # GET /statuses/new.json
   def new
     @status = Status.new
-
+    @app_profile = AppProfile.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @status }
