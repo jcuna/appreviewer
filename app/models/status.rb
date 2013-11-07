@@ -1,5 +1,5 @@
 class Status < ActiveRecord::Base
-  attr_accessible :content, :user_id, :application
+  attr_accessible :content, :user_id, :application, :app_id
   	
   	belongs_to :user
   	belongs_to :app_profile
