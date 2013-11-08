@@ -40,8 +40,8 @@ class AppProfilesController < ApplicationController
   # POST /app_profiles
   # POST /app_profiles.json
   def create
-    #@app_profile = AppProfile.new(params[:app_profile])
-    @app_profile = Status.find_by_application(params[:id])
+    @app_profile = AppProfile.new(params[:app_profile])
+    #@app_profile = Status.find_by_application(params[:id])
     respond_to do |format|
       if @app_profile.save
         format.html { redirect_to @app_profile, notice: 'App profile was successfully created.' }

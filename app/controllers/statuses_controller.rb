@@ -7,7 +7,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   
   def index
     @statuses = Status.all
-    
+    @app_profile = AppProfile.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @statuses }
@@ -18,7 +18,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # GET /statuses/1.json
   def show
     @status = Status.find(params[:id])
-
+    @app_profile = AppProfile.find_by_name(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @status }
@@ -39,12 +39,14 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # GET /statuses/1/edit
   def edit
     @status = Status.find(params[:id])
+    app_profile = AppProfile.find(params[:id])
   end
 
   # POST /statuses
   # POST /statuses.json
   def create
     @status = current_user.statuses.new(params[:status])
+    @app_profile = AppProfile.new(params[:id])
 
     respond_to do |format|
       if @status.save

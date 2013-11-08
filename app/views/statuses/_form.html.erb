@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@status, html: {class: "well"}) do |f| %>
+<%= simple_form_for(@status) do |f| %>
 <!--  <% if @status.errors.any? %> 
     <div id="error_explanation">
       <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:
@@ -12,7 +12,7 @@
     </div>
    <% end %> -->
 
-<div class="row">
+  <div class="row">
   <div class="col-md-3">
       <%= f.input :application, label: false, placeholder: "App Name", input_html: { class: "form-control"} %>
   </div>

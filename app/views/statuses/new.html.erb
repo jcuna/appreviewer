@@ -1,9 +1,13 @@
+
 <div class="jumbotron">
 	<h1 align="center">New Review</h1></div>
 <% if user_signed_in? %>
 
-<%= render :partial => 'app_profiles/form'  %>
+<div class="well">
+
+
 <%= render 'form' %>
+</div>
 
 <% else %>
 

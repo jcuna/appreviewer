@@ -10,10 +10,10 @@
 <div class="status">
 	<div class="row">
 		<div class="col-lg-1">
-			<%= image_tag status.user.gravatar_url %>
+			<%= link_to image_tag(status.user.gravatar_url), profile_path(status.user) %>
 		</div>
 		<div class="col-sm-12 col-md-6">
-		<strong><p><%= link_to status.user.full_name, status.user.profile_name %> 
+		<strong><p><%= link_to status.user.full_name, profile_path(status.user) %> 
 			posted a review for <%= status.application %></p></strong>
 		<p><%= status.content %></p>
 			<div class="meta">
