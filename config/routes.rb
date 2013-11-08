@@ -19,6 +19,9 @@ Appreviewer::Application.routes.draw do
     get 'login' , to: 'devise/sessions#new', as: :login
   end
 
+  resource :user_friendships
+  
+
   resources :statuses
   get 'reviews', to: 'statuses#index', as: :reviews
   get 'newreview', to: 'statuses#new', as: :newreview
