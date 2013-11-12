@@ -31,22 +31,22 @@ class UserFriendshipsControllerTest < ActionController::TestCase
       end
 
       should "display the friend's name" do
-        get :new, friend_id: users(:Jero).id
+        get :new, friend_id: users(:Jero)
         assert_match /#{users(:Jero).full_name}/, response.body
       end
 
       should "assign a user friendship" do
-        get :new, friend_id: users(:Jero).id
+        get :new, friend_id: users(:Jero)
         assert assigns(:user_friendship)
       end
 
       should "assign a user friendship with the user as current user" do
-        get :new, friend_id: users(:Jero).id
+        get :new, friend_id: users(:Jero)
         assert_equal assigns(:user_friendship).user, users(:Jon)
       end
 
       should "assign a user friendship with the correct friend" do
-        get :new, friend_id: users(:Jero).id
+        get :new, friend_id: users(:Jero)
         assert_equal assigns(:user_friendship).friend, users(:Jero)
       end
     
