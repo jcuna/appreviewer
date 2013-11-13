@@ -3,6 +3,7 @@ Jon:
   last_name: "Cuna"
   email: "cuna@me.com"
   profile_name: "jcuna"
+  encrypted_password: $2a$10$Fh/Hm8RxDsuPTeBUr6864.GARlcmt7zF2WspaXGr3BIv2C27N.osq
 
 Jero:
   first_name: "Jero"

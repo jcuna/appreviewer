@@ -3,21 +3,22 @@ Appreviewer::Application.routes.draw do
   resources :app_profiles
 
 
-  get "app_profile/new"
-
-  get "app_profile/create"
-
-  get "app_profile/show"
-
-
-  get "profiles/show"
-
   devise_for :users
 
   devise_scope :user do
-    get 'register' , to: 'devise/registrations#new', as: :register
-    get 'login' , to: 'devise/sessions#new', as: :login
+    get '/register' , to: 'devise/registrations#new', as: :register
+    get '/login' , to: 'devise/sessions#new', as: :login
   end
+
+  devise_for :users, skip: [:sessions]
+
+  as :user do
+    get "/login" => 'devise/sessions#new', as: :new_user_session
+    post "/login" => 'devise/sessions#create', as: :user_session
+
+  end
+
+
 
   resource :user_friendships
   
@@ -30,6 +31,14 @@ Appreviewer::Application.routes.draw do
   get '/:id', to: 'profiles#show', as: 'profile'
 
   get '/apps/:id', to: 'app_profile#show', as: 'name'
+
+  get "app_profile/new"
+
+  get "app_profile/create"
+
+  get "app_profile/show"
+
+  get "profiles/show"
 
 
   # The priority is based upon order of creation:
