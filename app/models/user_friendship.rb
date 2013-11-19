@@ -5,6 +5,10 @@ class UserFriendship < ActiveRecord::Base
   attr_accessible :user_id, :friend_id, :user, :friend
 
   state_machine :state, initial: :pending do
+  	after_transition on: :accept, do: :send_acceptance_email
+  	event :accept do
+  		transition any => :accepted
+  	end
   	
   end
 
@@ -12,4 +16,8 @@ class UserFriendship < ActiveRecord::Base
   	UserNotifier.follow_requested(id).deliver
   end
 
+  def send_acceptance_email
+  	UserNotifier.follow_request_accepted(id).deliver
+
+  end
 end

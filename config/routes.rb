@@ -27,7 +27,7 @@ Appreviewer::Application.routes.draw do
   post 'newreview', to: 'statuses#new', as: :newreview
 
 
-  root to: 'statuses#index', as: :reviews
+  root to: 'statuses#index'
 
   get '/:id', to: 'profiles#show', as: 'profile'
 
