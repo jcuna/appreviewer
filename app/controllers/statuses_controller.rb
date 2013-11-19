@@ -45,7 +45,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # POST /statuses.json
   def create
     @status = current_user.statuses.new(params[:status])
-    @app_profile = AppProfile.new(params[:id])
+    @app_name = AppProfile.new(params[:id])
 
     respond_to do |format|
       if @status.save
