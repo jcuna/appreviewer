@@ -11,7 +11,7 @@ class UserFriendshipTest < ActiveSupport::TestCase
 end
 	test "that creating a friendship based on user id and friend id works" do
 		UserFriendship.create user_id: users(:Jon).id, friend_id: users(:Jero).id
-		assert users(:Jon).friends.include?(users(:Jero))
+		assert users(:Jon).pending_friends.include?(users(:Jero))
 	end
 
 	context "a new instance" do
@@ -51,5 +51,25 @@ end
 				@user_friendship.accept!
 			end
 		end
+
+		should "include the friend in the list of friends" do
+			@user_friendship.accept!
+			users(:Jero).friends.reload
+			assert users(:Jero).friends.include?(users(:Jon))
+		end
 	end
+		context ".request" do
+			should "create two user friendships" do
+				assert_difference 'UserFriendship.count', 2 do
+					UserFriendship.request(users(:Jon), users(:Jero))
+				end
+			end
+		should "send a friend request email" do 
+				assert_difference 'ActionMailer::Base.deliveries.size', 1 do
+					UserFriendship.request(users(:Jon), users(:Jero))
+			end
+		end
+
+	end
+
 end
