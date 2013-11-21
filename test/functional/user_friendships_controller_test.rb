@@ -106,7 +106,7 @@ require 'test_helper'
                   end
 
                   should "create a user friendship" do
-                    assert users(:Jon).friends.include?(users(:Jero))
+                    assert users(:Jon).pending_friends.include?(users(:Jero))
                   end
 
                   should "redirect to the profile page of the friend" do
