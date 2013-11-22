@@ -24,7 +24,18 @@ require 'test_helper'
       should "get the index page without errors" do
         assert_response :success
       end
+
+      should "assign user_friendships" do
+        assert assigns(:user_friendships)
+      end
+
+      should "display friend's names" do
+        assert_match /Pending/, response.body
+        assert_match /Active/, response.body
+      end
+
     end
+ 
 
 
       context "#new" do
@@ -35,6 +46,7 @@ require 'test_helper'
             assert_redirected_to login_path
           end
         end
+      end
 
         context "when logged in" do
           setup do
@@ -148,4 +160,3 @@ require 'test_helper'
       end
     end
   end
-end
