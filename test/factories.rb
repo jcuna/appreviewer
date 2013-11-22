@@ -22,7 +22,7 @@ FactoryGirl.define do
 		end
 
 		factory :accepted_user_friendship do
-		state 'accepted'
+			state 'accepted'
 		end
 	end
 end

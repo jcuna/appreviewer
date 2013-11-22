@@ -20,7 +20,7 @@ Appreviewer::Application.routes.draw do
 
 
   resource :user_friendships
-  
+  get "user_friendships/index"
 
   resources :statuses
   get 'reviews', to: 'statuses#index', as: :reviews
