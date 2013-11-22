@@ -19,8 +19,17 @@ Appreviewer::Application.routes.draw do
 
 
 
-  resource :user_friendships
+  resource :user_friendships do
+    member do
+      put :accept
+    end
+  end
+
   get "user_friendships/index"
+
+  get "user_friendshiss/create"
+
+  get "user_friendships/new"
 
   resources :statuses
   get 'reviews', to: 'statuses#index', as: :reviews

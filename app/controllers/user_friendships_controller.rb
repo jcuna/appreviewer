@@ -5,6 +5,16 @@ class UserFriendshipsController < ApplicationController
     @user_friendships = current_user.user_friendships.all
   end
 
+  def accept
+    @user_friendship = current_user.user_friendships.find(params[:id])
+    if @user.friendship.accept!
+      flash[:success] = "You are now following #{@user_friendship.friend.first_name}"
+    else
+      flash[:error] = "This action could not be completed at this time."
+    end
+    redirect_to user_friendships_path
+  end
+
   def new
     if params[:friend_id]
       @friend = User.where(profile_name: params[:friend_id]).first
