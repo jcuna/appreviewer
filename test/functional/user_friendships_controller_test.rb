@@ -190,14 +190,14 @@ require 'test_helper'
           should "assign a user_friendship" do
             assert assigns(:user_friendship)
             assert_equal @user_friendship, assigns(:user_friendship)
-          end
+          end 
 
           should "update the state to accepted" do
             assert_equal 'accepted', @user_friendship.state
           end 
+          should "have a flash success message" do
+            assert_equal "You are now following #{@user_friendship.friend.first_name}", flash[:success]
+          end 
         end
-
       end
-
-
   end
