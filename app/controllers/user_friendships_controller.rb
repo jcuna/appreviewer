@@ -2,6 +2,10 @@ class UserFriendshipsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html, :json
 
+ def show
+    @user_friendships = current_user.user_friendships.includes(:friend).all
+  end
+
   def index
     @user_friendships = current_user.user_friendships.includes(:friend).all
   end

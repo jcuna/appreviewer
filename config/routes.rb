@@ -1,8 +1,5 @@
 Appreviewer::Application.routes.draw do
 
-  resources :app_profiles
-
-
   devise_for :users
 
   devise_scope :user do
@@ -18,28 +15,24 @@ Appreviewer::Application.routes.draw do
   end
 
 
-
   resource :user_friendships do
     member do
       put :accept
     end
   end
 
-  get "user_friendships/index"
-
-  get "user_friendshiss/create"
-
-  get "user_friendships/new"
+  get 'user_friendships/show'
 
   resources :statuses
   get 'reviews', to: 'statuses#index', as: :reviews
-  post 'newreview', to: 'statuses#new', as: :newreview
+  get 'newreview', to: 'statuses#new', as: :newreview
 
 
   root to: 'statuses#index'
 
   get '/:id', to: 'profiles#show', as: 'profile'
 
+  resources :app_profiles
   get '/apps/:id', to: 'app_profile#show', as: 'name'
 
 
