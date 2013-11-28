@@ -2,10 +2,6 @@ class UserFriendshipsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html, :json
 
- def show
-    @user_friendships = current_user.user_friendships.includes(:friend).all
-  end
-
   def index
     @user_friendships = current_user.user_friendships.includes(:friend).all
   end
@@ -46,7 +42,7 @@ class UserFriendshipsController < ApplicationController
           format.html { flash[:error] = "There was a problem."; redirect_to profile_path(@friend) }
           format.json { render json: @user_friendship.to_json, status: :precondition_failed }
         else
-          format.html { flash[:success] = "Friendship created."; redirect_to profile_path(@friend) }
+          format.html { flash[:success] = "Friend request sent."; redirect_to profile_path(@friend) }
           format.json { render json: @user_friendship.to_json }
         end
       end

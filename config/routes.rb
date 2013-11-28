@@ -15,13 +15,13 @@ Appreviewer::Application.routes.draw do
   end
 
 
-  resource :user_friendships do
+  resources :user_friendships do
     member do
+    
       put :accept
     end
   end
 
-  get 'user_friendships/show'
 
   resources :statuses
   get 'reviews', to: 'statuses#index', as: :reviews

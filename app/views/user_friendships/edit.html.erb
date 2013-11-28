@@ -16,6 +16,7 @@
       <% end %>
 
       <% if @user_friendship.accepted? %>
+      <h4> You are friends with <%= @friend.full_name %></h4>
         <%= form_for @user_friendship, url: user_friendship_path(@user_friendship), method: :delete do |form| %>
           <%= submit_tag "Delete Friendship", class: 'btn btn-danger' %>
         <% end %>
