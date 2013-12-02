@@ -14,8 +14,10 @@ class ProfilesControllerTest < ActionController::TestCase
 
   test "shows statuses on success" do
     get :show, id: users(:jason).profile_name
+    assigns(:statuses).each do |status|
     assert_not_empty assigns(:statuses)
   end
+end
 
   test "only shows the correct user's statuses" do
     get :show, id: users(:jason).profile_name

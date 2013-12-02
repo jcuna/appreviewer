@@ -105,10 +105,11 @@ class UserFriendshipsControllerTest < ActionController::TestCase
         assert_redirected_to login_path
       end
     end
+  end
 
     context "when logged in" do
       setup do
-        sign_in users(:jason)
+        sign_in users(:Jero)
       end
 
       context "with no friend_id" do
@@ -127,27 +128,25 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 
       context "with a valid friend_id" do
         setup do
-          post :create, user_friendship: { friend_id: users(:mike).profile_name }
+          post :create, user_friendship: { friend_id: users(:Jon).profile_name }
         end
 
         should "assign a friend object" do
-          assert_equal users(:mike), assigns(:friend)
+          assert_equal users(:Jon), assigns(:friend)
         end
 
         should "assign a user_friendship object" do
           assert assigns(:user_friendship)
-          assert_equal users(:jason), assigns(:user_friendship).user
-          assert_equal users(:mike), assigns(:user_friendship).friend
+          assert_equal users(:Jero), assigns(:user_friendship).user
+          assert_equal users(:Jon), assigns(:user_friendship).friend
         end
 
         should "create a user friendship" do
-          assert users(:jason).friends.include?(users(:mike))
+          assert users(:Jero).friends.include?(users(:Jon)) => "message"
         end
       end
-
-
     end
-  end
+ 
 
   context "#edit" do
     context "when not logged in" do

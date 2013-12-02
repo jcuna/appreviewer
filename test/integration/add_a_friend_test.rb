@@ -8,15 +8,13 @@ class AddAFriendTest < ActionDispatch::IntegrationTest
 	test "That adding a friend works" do
 		sign_in_as users(:Jon), "testing"
 
-		get "/user_friendships/new?friend_id=#{users(:Jero).profile_name}"
+		get "/user_friendships/new?friend_id=#{users(:nick).profile_name}"
 		assert_response :success
-		
+
 		assert_difference 'UserFriendship.count', 2 do
-			post "/user_friendships", user_friendship: { friend_id: users(:Jero).profile_name }
+			post "/user_friendships", user_friendship: { friend_id: users(:nick).profile_name }
 			assert_response :redirect
 			assert_equal "Friend request sent.", flash[:success]
 		end
-
 	end
-
 end

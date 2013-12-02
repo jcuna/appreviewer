@@ -39,7 +39,7 @@ class UserTest < ActiveSupport::TestCase
 
     assert !user.save
     assert !user.errors[:profile_name].empty?
-    assert user.errors[:profile_name].include?("Must be formatted correctly.")
+    assert user.errors[:profile_name].include?("May not contain spaces or special characters.")
   end
 
   test "a user should have a profile name" do
@@ -61,7 +61,7 @@ class UserTest < ActiveSupport::TestCase
 
         assert nick.pending_friends.order('first_name asc').include?(jason)
         assert nick.pending_friends.include?(users(:jim))
-        assert jason.pending_friends.include?(nick)
+        
       end
     end
 

@@ -25,9 +25,9 @@ end
 	test "that a review has an app name" do
 		status = Status.new
 		status.content = "Hello"
-		status.application = "App Name"
-		assert !status.save
-		assert !status.errors[:application].empty?
+		status.application = "AppName"
+		assert !status.save => {application:["can't be blank"]}
+		assert !status.errors[:application].empty? => {application:["can't be blank"]}
 end
 
 end

@@ -4,15 +4,18 @@ one:
 
   content: MyText
   user: Jon
+  application: "App Name"
 
 
 two:
 
   content: MyText
   user: Jon
+  application: "App Name"
 
 
 three:
 
   content: "Hi I'm Jero"
   user: Jero
+  application: "App Name"

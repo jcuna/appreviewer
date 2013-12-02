@@ -7,7 +7,7 @@
 			<div style="padding-left:8px;font-size:30px;line-height:normal">
 				<%= @user.full_name %><br>
 				<% if @user != current_user %>
-				<%= link_to "Follow Reviews", new_user_friendships_path(friend_id: @user), class: 'btn btn-ss btn-info' %>
+				<%= link_to "Follow Reviews", new_user_friendship_path(friend_id: @user), class: 'btn btn-ss btn-info' %>
 				<% end %>
 			</div>	
 		</div>
