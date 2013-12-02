@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class AppProfilesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class AppProfilesControllerTest < ActionController::TestCase
     assert_redirected_to app_profiles_path
   end
 end
+=end
