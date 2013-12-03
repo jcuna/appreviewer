@@ -5,12 +5,14 @@ class UserFriendshipDecorator < Draper::Decorator
   	model.state.titleize
   end
   def sub_message
-    case model.state
+  case model.state
     when 'pending'
-  	"Do you really want to be friends with #{model.friend.first_name}?"
-  when 'accepted'
-    "You are now friends with #{model.friend.first_name}"
-  end
+    	"You have sent a friend request to #{model.friend.first_name}."
+    when 'accepted'
+      "You are friends with #{model.friend.first_name}."
+    when 'requested'
+      "Are you sure you want to be friends with #{model.friend.first_name}?"
+    end
 end
 
   # Define presentation-specific methods here. Helpers are accessed through

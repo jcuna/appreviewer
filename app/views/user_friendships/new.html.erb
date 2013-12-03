@@ -6,7 +6,7 @@ Not found.
 </div>
 
 <p>
-  Do you really want to friend <%= @friend.full_name %>?
+  Do you really want to be friends with <%= @friend.full_name %>?
   <%= form_for @user_friendship, method: :post do |form| %>
     <div class="form form-actions">
       <%= form.hidden_field :friend_id, value: @friend.profile_name %>

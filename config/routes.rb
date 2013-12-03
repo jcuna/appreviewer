@@ -14,19 +14,16 @@ Appreviewer::Application.routes.draw do
     post "/login" => 'devise/sessions#create', as: :user_session
   end
 
-
   resources :user_friendships do
     member do
-    
       put :accept
     end
   end
 
-
   resources :statuses
-  get 'reviews', to: 'statuses#index', as: :reviews
-  get 'newreview', to: 'statuses#new', as: :newreview
-
+  get '/newreview', to: 'statuses#new', as: :newreview
+  get '/reviews', to: 'statuses#index', as: :reviews
+  post '/appname', to: 'statuses#new', as: :appname
 
   root to: 'statuses#index'
 
@@ -34,7 +31,6 @@ Appreviewer::Application.routes.draw do
 
   resources :app_profiles
   get '/apps/:id', to: 'app_profile#show', as: 'name'
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -19,7 +19,7 @@ class CustomRoutesTest < ActionDispatch::IntegrationTest
 
 	 test "that the /newreview route opens the new review page" do
 	 	get '/newreview'
-	 	assert_response :success
+	 	assert_response :redirect
 	end
 
 	test "that a profile page works" do
