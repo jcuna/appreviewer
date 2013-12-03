@@ -4,7 +4,7 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="form form-action">
 
-		<%= simple_form_for @app_profile, :url => appname_path do |f| %>
+		<%= simple_form_for @app_profile do |f| %>
 
 		<!-- <%= f.hidden_field :app_id, value: @app_id %> -->
 		<%= f.input :name, label: false, placeholder: "App Name", input_html: { class: "form-control"} %>

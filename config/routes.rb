@@ -23,14 +23,16 @@ Appreviewer::Application.routes.draw do
   resources :statuses
   get '/newreview', to: 'statuses#new', as: :newreview
   get '/reviews', to: 'statuses#index', as: :reviews
-  post '/appname', to: 'statuses#new', as: :appname
+  # post '/appname', to: 'statuses#new', as: :appname
+
+ resources :app_profiles
 
   root to: 'statuses#index'
 
   get '/:id', to: 'profiles#show', as: 'profile'
 
-  resources :app_profiles
-  get '/apps/:id', to: 'app_profile#show', as: 'name'
+ 
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

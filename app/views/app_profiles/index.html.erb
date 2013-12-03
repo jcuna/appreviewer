@@ -1,23 +1,22 @@
-<h1>Listing app_profiles</h1>
+<div class="container">
+<div class="jumbotron">
+<h1 align="center">Listing All Apps.</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @app_profiles.each do |app_profile| %>
-  <tr>
-    <td><%= app_profile.name %></td>
-    <td><%= link_to 'Show', app_profile %></td>
-    <td><%= link_to 'Edit', edit_app_profile_path(app_profile) %></td>
-    <td><%= link_to 'Destroy', app_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+<div class="status">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      
+    <p><%= app_profile.name %></p>
+      <div class="meta">
+          | <%= link_to "Edit", edit_app_profile_path(app_profile) %> |
+          <%= link_to "Delete", app_profile, method: :delete, data: { confirm: "Are you sure you want to delete this app?"} %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New App profile', new_app_profile_path %>
+</div>
