@@ -1,8 +1,18 @@
 <div class="page-header">
-  <h1>Status</h1>
+  <h1>Friendship Status</h1>
 </div>
 
-<div>
+<div class="row">
+  <div class="avatar col-md-2">
+    <%= image_tag @user_friendship.user.gravatar_url %><br>
+    <%= @user_friendship.user.first_name %>
+  </div>
+    <div class="avatar col-md-2">
+    <%= image_tag @user_friendship.friend.gravatar_url %><br>
+    <%= @user_friendship.friend.first_name %>
+  </div>
+<br>
+</div>
 
   <h3><%= @user_friendship.sub_message %></h3>
 
@@ -22,4 +32,3 @@
           <% end %>
       <% end %>
     </div>
-</div>

@@ -7,7 +7,16 @@
 			<div style="padding-left:8px;font-size:30px;line-height:normal">
 				<%= @user.full_name %><br>
 				<% if @user != current_user %>
-				<%= link_to "Follow Reviews", new_user_friendship_path(friend_id: @user), class: 'btn btn-ss btn-info' %>
+
+			<div id="friend-status">
+				<% if current_user.friends.include?(@user) || current_user.pending_friends.include?(@user) %>
+				<%= link_to "Edit Friendship", edit_user_friendship_path(friend_id: @user), class: 'btn btn-ss btn-info' %>
+				<% else %>
+				<%= link_to "Follow Reviews", new_user_friendship_path(friend_id: @user), class: 'btn btn-ss btn-info', id: 'add-friendship', data: { friend_id: @user.to_param } %>
+				<% end %>
+			</div>
+
+
 				<% end %>
 			</div>	
 		</div>

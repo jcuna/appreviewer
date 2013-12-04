@@ -38,7 +38,7 @@ class UserFriendshipDecoratorTest < Draper::TestCase
       end
 
       should "return Pending" do
-        assert_equal "Pending", @decorator.friendship_state
+        assert_equal "Request is pending.", @decorator.friendship_state
       end
     end
 
