@@ -16,6 +16,7 @@ jason:
   last_name: "Seifer"
   email: "jason@teamtreehouse.com"
   profile_name: "jasonseifer"
+  encrypted_password: $2a$10$Fh/Hm8RxDsuPTeBUr6864.GARlcmt7zF2WspaXGr3BIv2C27N.osq
 
 jim:
   first_name: "Jim"
@@ -34,3 +35,9 @@ nick:
   last_name: "Pettit"
   email: "nick@teamtreehouse.com"
   profile_name: "nickrp"
+
+blocked_friend:
+  first_name: "Blocked"
+  last_name: "Friend"
+  email: "blocked@teamtreehouse.com"
+  profile_name: "youblockedme"
