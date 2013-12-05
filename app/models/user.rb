@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
                                       foreign_key: :user_id,
                                       conditions: { state: 'blocked'}
   has_many :blocked_friends, through: :pending_user_friendships, source:  :friend
+   has_many :accepted_user_friendships, class_name: 'UserFriendship',
+                                      foreign_key: :user_id,
+                                      conditions: { state: 'blocked'}
+  has_many :accepted_friends, through: :pending_user_friendships, source:  :friend
 
     def full_name
     	first_name + " " + last_name
