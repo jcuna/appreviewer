@@ -6,9 +6,19 @@ class StatusesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    sign_in users(:jason)
     get :index
     assert_response :success
     assert_not_nil assigns(:statuses)
+  end
+
+  test "should not display blocked user's posts when logged in" do
+    sign_in users(:jason)
+    users(:blocked_friend).statuses.create(content: 'Blocked status', application: 'Blocked App Name')
+    users(:jim).statuses.create(content: 'Nonblocked status', application: 'App Name')
+    get :index
+    assert_match /Nonblocked\ status/, response.body
+    assert_no_match /Blocked.\ status/, response.body
   end
 
   test "should be redirected when not logged in" do

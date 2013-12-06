@@ -62,4 +62,8 @@ class User < ActiveRecord::Base
       "http://gravatar.com/avatar/#{hash}d=http://cdn.hiconsumption.com/wp-content/uploads/2013/06/Faces-Scribble-Portraits-by-Vince-Low-0.jpg"
 
   end
+
+  def has_blocked?(other_user)
+    blocked_friends.include?(other_user)
+  end
 end

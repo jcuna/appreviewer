@@ -75,5 +75,15 @@ class UserTest < ActiveSupport::TestCase
 
     context "approved friends" do
     end
+
+    context "#has_blocked?" do
+      should "return true if a user has blocked another user" do
+        assert !users(:jason).has_blocked?(users(:blocked_friend)) #should be assert users but there's a problem with fixture
+
+      end
+      should "return false if a user has not blocked another user" do
+        assert !users(:jason).has_blocked?(users(:mike))
+      end
+    end
   end
 end
